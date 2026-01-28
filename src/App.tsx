@@ -30,7 +30,9 @@ export function App() {
     void audio.play().catch(() => {
       // Silently ignore if the browser blocks playback
     })
-    setIsUnwrapped(true)
+    window.setTimeout(() => {
+      setIsUnwrapped(true)
+    }, 2000)
   }
 
   const helperText = !isAfterDeadline

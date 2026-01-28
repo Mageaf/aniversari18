@@ -1,3 +1,5 @@
+import type React from 'react'
+
 type GiftBoxProps = {
   locked: boolean
   isUnwrapped: boolean
@@ -12,10 +14,10 @@ export function GiftBox({ locked, isUnwrapped, onUnwrap }: GiftBoxProps) {
       : 'gift-box--ready'
 
   const label = locked
-    ? 'Gift box locked until countdown ends'
+    ? 'Regal bloquejat fins que el compte enrere acabi'
     : isUnwrapped
-      ? 'Gift box opened'
-      : 'Open your birthday gift'
+      ? 'Regal obert'
+      : 'Obre el teu regal'
 
   const handleActivate = () => {
     if (locked || isUnwrapped) return
@@ -45,8 +47,8 @@ export function GiftBox({ locked, isUnwrapped, onUnwrap }: GiftBoxProps) {
         <div className="gift-box-ribbon-vertical" />
         <div className="gift-box-ribbon-horizontal" />
       </div>
-      {!locked && !isUnwrapped && <p className="gift-callout">Tap or click to unwrap</p>}
-      {locked && <p className="gift-callout">Soon...</p>}
+      {!locked && !isUnwrapped && <p className="gift-callout">Clica per obrir el regal</p>}
+      {locked && <p className="gift-callout">Aviat...</p>}
     </div>
   )
 }

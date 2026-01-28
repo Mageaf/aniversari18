@@ -137,6 +137,7 @@ body {
   left: 0;
   right: 0;
   border-radius: 16px;
+  z-index: 1;
 }
 
 .gift-box-body {
@@ -150,12 +151,17 @@ body {
   bottom: 120px;
   height: 60px;
   background: linear-gradient(135deg, #ff9ad5, #ffcfdc);
+  transform-origin: center bottom;
+  transition:
+    transform 260ms ease-out,
+    bottom 260ms ease-out;
 }
 
 .gift-box-ribbon-vertical,
 .gift-box-ribbon-horizontal {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.9);
+  z-index: 2;
 }
 
 .gift-box-ribbon-vertical {
@@ -198,7 +204,33 @@ body {
 }
 
 .gift-box--opened {
-  animation: gift-opened 400ms ease-out forwards;
+  animation: gift-opened-pop 420ms ease-out forwards;
+}
+
+.gift-box--opened .gift-box-lid {
+  bottom: 152px;
+  transform: rotateX(65deg) translateY(-6px);
+}
+
+.gift-box--opened::before,
+.gift-box--opened::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 130px;
+  width: 80px;
+  height: 80px;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 20% 20%, #ffeb3b 0, #ffeb3b 26%, transparent 30%),
+    radial-gradient(circle at 70% 30%, #ff4081 0, #ff4081 26%, transparent 30%),
+    radial-gradient(circle at 35% 70%, #40c4ff 0, #40c4ff 26%, transparent 30%),
+    radial-gradient(circle at 80% 75%, #b388ff 0, #b388ff 26%, transparent 30%);
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 0) scale(0.4);
+  z-index: 3;
+  animation: gift-confetti 520ms ease-out forwards;
 }
 
 .reveal {
@@ -239,13 +271,31 @@ body {
   }
 }
 
-@keyframes gift-opened {
+@keyframes gift-opened-pop {
   0% {
     transform: translateY(0) scale(1);
   }
+  45% {
+    transform: translateY(-14px) scale(1.05);
+  }
   100% {
-    transform: translateY(-12px) scale(0.97);
-    opacity: 0.9;
+    transform: translateY(-10px) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes gift-confetti {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.4);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-50%, -12px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -30px) scale(0.9);
   }
 }
 

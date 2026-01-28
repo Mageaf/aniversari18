@@ -69,19 +69,19 @@ export function Countdown({ targetDate, onDeadlineChange }: CountdownProps) {
     <div className="countdown">
       <div className="countdown-item">
         <span className="countdown-value">{days}</span>
-        <span className="countdown-label">days</span>
+        <span className="countdown-label">dies</span>
       </div>
       <div className="countdown-item">
         <span className="countdown-value">{format(hours)}</span>
-        <span className="countdown-label">hours</span>
+        <span className="countdown-label">hores</span>
       </div>
       <div className="countdown-item">
         <span className="countdown-value">{format(minutes)}</span>
-        <span className="countdown-label">minutes</span>
+        <span className="countdown-label">minuts</span>
       </div>
       <div className="countdown-item">
         <span className="countdown-value">{format(seconds)}</span>
-        <span className="countdown-label">seconds</span>
+        <span className="countdown-label">segons</span>
       </div>
     </div>
   )
