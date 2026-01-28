@@ -1,4 +1,4 @@
-export const TARGET_DATETIME = '2026-01-28T12:00+01:00'
+export const TARGET_DATETIME = '2026-01-29T12:00+01:00'
 
 export const IMAGE_PATH = '/birthday-photo.jpg'
 
