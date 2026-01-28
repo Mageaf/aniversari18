@@ -38,7 +38,7 @@ export function App() {
   const helperText = !isAfterDeadline
     ? LOCKED_MESSAGE
     : isUnwrapped
-      ? REVEAL_MESSAGE
+      ? ""
       : READY_MESSAGE
 
   return (
